@@ -170,4 +170,11 @@ public class ShoppingCtrl extends Controller {
         return ok(orderConfirmed.render(getCurrentUser(), order));
     }
 
+
+     public Result cancelOrder(Long id){
+         ShopOrder order = ShopOrder.find.byId(id);
+         return ok()
+     }
+
+
 }
