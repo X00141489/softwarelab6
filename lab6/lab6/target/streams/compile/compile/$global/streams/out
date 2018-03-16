@@ -1,0 +1,4 @@
+[0m[[0m[31merror[0m] [0m[0m/home/wdd/webapps/lab6/lab6/app/views/main.scala.html:38:45: object HomeController is not a member of package controllers[0m
+[0m[[0m[31merror[0m] [0m[0m                    <a href = "@controllers.HomeController.routes.viewOrders">View Orders</a>[0m
+[0m[[0m[31merror[0m] [0m[0m                                            ^[0m
+[0m[[0m[31merror[0m] [0m[0mone error found[0m
