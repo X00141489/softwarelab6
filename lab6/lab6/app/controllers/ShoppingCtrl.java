@@ -173,8 +173,23 @@ public class ShoppingCtrl extends Controller {
 
      public Result cancelOrder(Long id){
          ShopOrder order = ShopOrder.find.byId(id);
-         return ok()
-     }
+      if(order ==null){
+          flash("success","Order not found");
+          return redirect (routes.ShoppingCtrl.viewOrders());
+      }
+      LocalDateTime orderTime = LocalDateTime.ofInstant(order.getOrderDate().toInstant(),ZoneId.systemDefault());
 
+      if(orderTime.getYear()==now.getMonthValue()){
+          if(orderTime.getDayOfYear()==now.getDayOfYear()){
+              if((now.getHour()-orderTime.getHour()<=1){
+                  order.delete();
+                  flash("success","order cancelled");
+                  return redirect(routes.ShoppingCtrl.viewOrders());
+              }
+          }
+      }
+     }
+flash("success","order is too late to be cancelled");
+return redirect(routes.ShoppingCtrl.viewOrders());
 
 }
